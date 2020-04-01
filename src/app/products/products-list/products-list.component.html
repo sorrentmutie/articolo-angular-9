@@ -1,3 +1,23 @@
-<p>
-    products-list works!
-</p>
+<table *ngIf="!selectedProduct"  class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td> {{product.id}}</td>
+            <td> {{product.name}}</td>
+            <td> {{product.category}}</td>
+            <td> <button class="btn btn-info" (click)="showDetails(product)">Details</button> </td>
+        </tr>
+    </tbody>    
+</table>
+
+<div *ngIf="selectedProduct !== undefined">
+    <app-product-details (emitter)="hideDetails($event)"   [product]="selectedProduct"></app-product-details>
+</div>
+
