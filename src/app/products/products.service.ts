@@ -6,6 +6,10 @@ import { Injectable } from '@angular/core';
 export class ProductsService {
 
   constructor() { }
+
+  public message(): string {
+    return 'Bye';
+  }
 }
 
 
